@@ -17,23 +17,32 @@ struct __attribute__((packed)) js_event {
 // Where all of the events will be passed
 extern js_event *event_location;
 
-// Get info about the current event
+// Get the X position of the mouse on the screen
 inline uint32_t get_mouse_x() {
     return event_location->x;
 }
 
+// Get the Y position of the mouse on the screen
 inline uint32_t get_mouse_y() {
     return event_location->y;
 }
 
+// Get the current keycode
 inline uint16_t get_keycode() {
     return event_location->keycode;
 }
 
+// Get timestamp in miliseconds
 inline uint64_t get_timestamp() {
     return event_location->timestamp;
 }
 
+// Get timestamp in seconds (sti)
+inline double get_timestamp_s() {
+    return event_location->timestamp / 1000;
+}
+
+// Is the mouse down?
 inline bool mouse_down() {
     return event_location->flags & 0b00000001;
 }

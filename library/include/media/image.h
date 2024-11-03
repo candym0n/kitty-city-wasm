@@ -9,7 +9,7 @@ struct js_image {
     uint32_t loaded;    // The number of image things loaded
 };
 
-// An audio ID
+// An image ID
 typedef uint32_t image_t;
 
 // Register an image

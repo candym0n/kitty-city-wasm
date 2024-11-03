@@ -5,6 +5,7 @@
             "includePath": [
                 "${workspaceFolder}/include",
                 "${workspaceFolder}/library/include",
+                // $(EMSDK_PATH)\upstream\emscripen\cache\sysroot\include or wherever else you have it (problably there)
                 "D:\\data\\Development\\wasm\\emsdk\\upstream\\emscripten\\cache\\sysroot\\include"
             ],
             "defines": [

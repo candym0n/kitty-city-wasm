@@ -20,6 +20,7 @@ export default class Wasm {
                 emscripten_resize_heap: MemoryManager.memory.grow,
                 _emscripten_memcpy_js: MemoryManager.memcpy,
                 _abort_js: printString,
+                __cxa_throw: printString,
                 emscripten_get_now: Date.now,
                 getentropy,
                 printString,

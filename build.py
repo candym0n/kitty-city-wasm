@@ -10,7 +10,7 @@ CFLAGS = [
     "-Wno-undefined-internal",  # Ignore the internal linkage error (for EM_JS)
     "-I include",
     "-I library/include",
-    "-O2"
+    "-O2",
 ]
 
 def count_lines_of_code(file_paths):
@@ -51,7 +51,7 @@ def main():
     lines = count_lines_of_code(line_file)
 
     # Compile it!
-    print("Compiling " + ", ".join(cpp_files))
+    print("Compiling " + "\n".join(cpp_files))
     command = " ".join([
         "em++", *cpp_files,
         f"-o {WASM_DIR}\\{APPLICATION_NAME}.js",
