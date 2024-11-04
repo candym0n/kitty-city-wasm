@@ -1,5 +1,4 @@
 import os
-import subprocess
 
 APPLICATION_NAME = "game"
 
@@ -13,16 +12,8 @@ CFLAGS = [
     "-O2",
 ]
 
+# Count the number of newlines in a set of files
 def count_lines_of_code(file_paths):
-    """Counts the total number of lines of code in the given files.
-
-    Args:
-        file_paths: A list of file paths.
-
-    Returns:
-        The total number of lines of code.
-    """
-
     total_lines = 0
     for file_path in file_paths:
         with open(file_path, 'r') as f:

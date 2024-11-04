@@ -9,7 +9,7 @@ export default class AudioManager {
 
     // The number of audios that are loaded
     // Get it?
-    static AUTO_INCREMENT = 0;
+    static AUTO_INCREMENT = 1;
 
     // The things loaded
     static loaded = 0;
