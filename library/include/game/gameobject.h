@@ -31,13 +31,16 @@ public:
         // Check that we are actually adding a component
         static_assert(std::is_base_of<Component, T>::value, "T must inherit from Component!");
 
-        // Add (and initialize) the component
-        auto component = std::make_unique<T>();
+        // Add the component
+        std::unique_ptr<T> component = std::make_unique<T>();
+        T* componentPtr = component.get();
         component->SetOwner(this);
-        component->Init();
         components.push_back(std::move(component));
-        return component.get();
+        return componentPtr;
     }
+
+    // Call Init on all of the components
+    void Init();
 
     // Get a component
     template <typename T>

@@ -1,4 +1,6 @@
 #include <game/gameobject.h>
+#include <game/component.h>
+
 void GameObject::Update()
 {
     // Check if we are active
@@ -25,4 +27,9 @@ void GameObject::SetActive(bool state)
     }
 }
 
-
+void GameObject::Init()
+{
+    for (auto& comp : components) {
+        comp->Init();
+    }
+}
