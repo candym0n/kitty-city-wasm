@@ -1,5 +1,7 @@
 #include <components/audio/backgroundmusic.h>
 
+bool BackgroundMusic::isPlaying = false;
+
 void BackgroundMusic::Play() {
     play_background_music();
     isPlaying = true;

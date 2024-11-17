@@ -32,6 +32,9 @@ LoadingScene::LoadingScene(const char * sceneName) : Scene(sceneName)
     btn->SetDimensions(200, 200);
     startButton->SetPosition(700, 350);
     startButton->SetActive(false);
+
+    // Bind the event for button click
+    btn->AddCallback(Button::CLICKED, [this]() { this->OnPressed(); });
 }
 
 void LoadingScene::Update()
@@ -50,5 +53,15 @@ void LoadingScene::Update()
         loadingBar->SetActive(false);
         background->SetActive(true);
         startButton->SetActive(true);
+        BackgroundMusic::Play();
     }
+
+    // Set the width of the loading bar
+    loadingBar->GetComponent<LoadingBar>()->SetLoaded(loaded);
+}
+
+void LoadingScene::OnPressed()
+{
+    // Switch to the next scene
+    SceneManager::LoadScene("GameScene");
 }

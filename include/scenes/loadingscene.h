@@ -19,4 +19,7 @@ public:
 
     // Called once per frame
     void Update() override;
+
+    // Called when the start button is pressed
+    void OnPressed();
 };

@@ -36,12 +36,19 @@ def main():
     cpp_files = find_files(".cpp", "src") + find_files(".cpp", "library/src")
 
     # Print the # of lines of code
-    line_file = [
+    line_file_one = [
         *find_files(".cpp", "src"),
         *find_files(".h", "include")
     ]
 
-    lines = count_lines_of_code(line_file)
+    linesOne = count_lines_of_code(line_file_one)
+    
+    line_file_two = [
+        *find_files(".cpp", "library/src"),
+        *find_files(".h", "library/include")
+    ]
+
+    linesTwo = count_lines_of_code(line_file_two) + linesOne
 
     # Compile it!
     print("Compiling " + "\n".join(cpp_files))
@@ -62,7 +69,8 @@ def main():
     os.system(f"del {WASM_DIR}\\{APPLICATION_NAME}.js")
 
     # Yay!
-    print("\nWe have compiled " + str(lines) + " lines of code!")
+    print("\nWe have compiled " + str(linesTwo) + " lines of code!")
+    print(str(linesOne) + " of those YOU have written!")
 
 if __name__ == "__main__":
     main()
