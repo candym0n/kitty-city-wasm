@@ -2,19 +2,20 @@
 #include <media/image.h>
 
 // Exported Javascript functions
-EM_JS(static void, DrawRect, (int x, int y, int width, int height, color_t color, int rotation), {})
+EM_JS(static void, DrawRect, (int x, int y, int width, int height, color_t color, int rotation, float opacity), {})
 EM_JS(static void, ClearRect, (int x, int y, int width, int height), {})
 EM_JS(static void, DrawImage, (int x, int y, int width, int height, image_t image, int rotation), {})
 
 // Draw a rectangle
-void draw_rect(Vector2<int> position, int width, int height, color_t color, int rotation) {
+void draw_rect(Vector2<int> position, int width, int height, color_t color, int rotation, float opacity) {
     DrawRect(
         position.x,
         position.y,
         width,
         height,
         color,
-        rotation
+        rotation,
+        opacity
     );
 }
 
