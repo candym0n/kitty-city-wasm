@@ -4,6 +4,7 @@
 #include <emscripten.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <math/vector.h>
 
 // The structure for an event passed by js
 struct __attribute__((packed)) js_event {
@@ -25,6 +26,11 @@ inline uint32_t get_mouse_x() {
 // Get the Y position of the mouse on the screen
 inline uint32_t get_mouse_y() {
     return event_location->y;
+}
+
+// Get the mouse position as a vector
+inline Vector2<int> get_mouse() {
+    return Vector2<int>(get_mouse_x(), get_mouse_y());
 }
 
 // Get the current keycode
