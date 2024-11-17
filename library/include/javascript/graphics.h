@@ -9,7 +9,7 @@
 typedef uint32_t color_t;
 
 // Draw a rectangle
-void draw_rect(Vector2<int> position, int width, int height, color_t color, int rotation=0);
+void draw_rect(Vector2<int> position, int width, int height, color_t color, int rotation=0, float opacity=1.0f);
 
 // Clear the screen
 void clear_screen(void);
