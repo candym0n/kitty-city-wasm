@@ -113,7 +113,7 @@ public:
         return x > X && y > Y && x < X + width && y < Y + height;
     }
 
-    constexpr bool inRectangle(Vector2<T> a, Vector2<t> b) {
+    constexpr bool inRectangle(Vector2<T> a, Vector2<T> b) {
         return x > a.x && y > a.y && x < b.x && y < b.y;
     }
 
