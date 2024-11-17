@@ -104,6 +104,19 @@ public:
         }
     }
 
+    // Check if the vector is in a rectangle
+    constexpr bool inRectangle(Vector2<T> pos, T width, T height) {
+        return x > pos.x && y > pos.y && x < pos.x + width && y < pos.y + height;
+    }
+
+    constexpr bool inRectangle(T X, T Y, T width, T height) {
+        return x > X && y > Y && x < X + width && y < Y + height;
+    }
+
+    constexpr bool inRectangle(Vector2<T> a, Vector2<t> b) {
+        return x > a.x && y > a.y && x < b.x && y < b.y;
+    }
+
     // Utility functions
     static constexpr Vector2 zero() { return Vector2(0, 0); }
     static constexpr Vector2 one() { return Vector2(1, 1); }
