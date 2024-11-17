@@ -9,6 +9,9 @@ private:
     // The background
     GameObject* background;
 
+    // The start button
+    GameObject* startButton;
+
     // Has the game loaded fully?
     bool loadedFully;
 public:

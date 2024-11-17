@@ -1,3 +1,5 @@
+#pragma once
+
 #include <library.h>
 #include <vector>
 #include <functional>
@@ -7,10 +9,12 @@ using ButtonCallback = std::function<void()>;
 
 class Button : public Component {
 private:
-    int width;      // The width of the button
-    int height;     // The height of the button
-    image_t img;    // The image on the button
-    color_t shade;  // The color of the shade
+    int width;          // The width of the button
+    int height;         // The height of the button
+    image_t img;        // The image on the button
+    image_t click_img;  // The image of the button when clicked
+    image_t hover_img;  // The image of the button when hoverd
+    color_t shade;      // The color of the shade
     std::vector<ButtonCallback> pressed; // List of functions to call when the button is pressed
     std::vector<ButtonCallback> hover;   // List of functions to call when the button is hovered
     std::vector<ButtonCallback> clicked; // List of functions to call when the button is done being clicked
@@ -39,6 +43,8 @@ public:
     // Set the image to be drawn
     void SetImage(image_t image);
     void SetImage(const char* src);
+    void SetImage(BUTTON_STATE forState, image_t image);
+    void SetImage(BUTTON_STATE forState, const char* src);
 
     // Set the dimensions
     void SetDimensions(int w, int h);

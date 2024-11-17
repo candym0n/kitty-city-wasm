@@ -13,6 +13,26 @@ void Button::SetImage(const char* src)
     img = register_image(src);
 }
 
+void Button::SetImage(BUTTON_STATE forState, image_t image)
+{
+    switch (forState) {
+        case PRESS:
+            click_img = image;
+            break;
+        case OFF:
+            SetImage(image);
+            break;
+        case HOVER:
+            hover_img = image;
+            break;
+    }
+}
+
+void Button::SetImage(BUTTON_STATE forState, const char* src)
+{
+    SetImage(forState, register_image(src));
+}
+
 void Button::SetDimensions(int w, int h)
 {
     width = w;
@@ -54,20 +74,25 @@ void Button::Update()
         CALL_FUNCTIONS(clicked);
     }
 
-    // Draw the shade on the top based on the current state of the button and call the functions
     switch (state) {
         case PRESS:
-            draw_rect(owner->GetPosition(), width, height, shade, 0, 0.5f);
+            if (click_img == NULL_IMAGE) {
+                draw_rect(owner->GetPosition(), width, height, shade, 0, 0.2f);
+            } else {
+                draw_image(owner->GetPosition(), width, height, click_img);
+            }
             break;
         case HOVER:
-            draw_rect(owner->GetPosition(), width, height, shade, 0, 0.2f);
+            if (hover_img == NULL_IMAGE) {
+                draw_rect(owner->GetPosition(), width, height, shade, 0, 0.5f);
+            } else {
+                draw_image(owner->GetPosition(), width, height, hover_img);
+            }
             break;
-        default:
+        case OFF:
+            draw_image(owner->GetPosition(), width, height, img);
             break;
     }
-
-    // Draw the image of the button
-    draw_image(owner->GetPosition(), width, height, img);
 }
 
 void Button::AddCallback(BUTTON_EVENT event, ButtonCallback callback)
