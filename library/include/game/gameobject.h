@@ -66,7 +66,7 @@ public:
     void SetActive(bool state);
 
     // Set the position of the gameobject
-    inline constexpr void SetPosition(Vector2<int>& newPos) { position = newPos; }
+    inline constexpr void SetPosition(Vector2<int> newPos) { position = newPos; }
     inline constexpr void SetPosition(int x, int y) { position.x = x; position.y = y; }
 
     // Get the position of the gameobject

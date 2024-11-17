@@ -23,13 +23,15 @@ export default class Graphics {
     }
 
     // Draw a rectangle
-    static DrawRect(x, y, width, height, color, rotation) {
+    static DrawRect(x, y, width, height, color, rotation, opacity) {
         this.c.save();
+        this.c.globalAlpha = opacity;
         this.c.translate(x + width / 2, y + height / 2);
         this.c.rotate(rotation * Math.PI / 180);
         this.c.fillStyle = "#" + color.toString(16).padStart(6, 0);
         this.c.fillRect(-width / 2, -height / 2, width, height);
         this.c.restore();
+        this.c.globalAlpha = 1;
     }
 
     // Draw an image

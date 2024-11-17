@@ -1,4 +1,21 @@
+import Graphics from "../graphics.js";
 import JSEvent from "./events.js";
+
+// Self explanatory
+function scalePoint(x, y, originalWidth, originalHeight) {
+    const targetWidth = 1600;
+    const targetHeight = 900;
+
+    // Calculate the scaling factor for both dimensions
+    const scaleX = targetWidth / originalWidth;
+    const scaleY = targetHeight / originalHeight;
+
+    // Apply the scaling factors to the original point
+    const scaledX = x * scaleX;
+    const scaledY = y * scaleY;
+
+    return [scaledX, scaledY];
+}
 
 export default class EventHandler {
     // The position of the mouse
@@ -149,9 +166,11 @@ export default class EventHandler {
 
     // Update the events
     static Update() {
+        let box = Graphics.canvas.getBoundingClientRect();
+        let converted = scalePoint(this.mouseX, this.mouseY, box.width, box.height);
         JSEvent.writeEvent({
-            "x": this.mouseX,
-            "y": this.mouseY,
+            "x": converted[0],
+            "y": converted[1],
             "keycode": this.keycode,
             "timestamp": Date.now(),
             "flags": this.mouseDown

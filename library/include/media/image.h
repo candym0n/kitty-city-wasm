@@ -3,6 +3,8 @@
 #include <emscripten.h>
 #include <stdint.h>
 
+#define NULL_IMAGE 0
+
 // The struct for passing information about audio
 struct js_image {
     uint32_t numImage;  // The number of image things
