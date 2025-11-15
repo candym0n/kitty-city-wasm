@@ -30,7 +30,7 @@
         - Statically typed
         - Faster
         - Better comments
-        - Better organized
+        - Better organization
         - More control
         - More flexability
         - Probably more
